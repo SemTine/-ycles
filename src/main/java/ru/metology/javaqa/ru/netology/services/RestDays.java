@@ -1,26 +1,27 @@
 package ru.metology.javaqa.ru.netology.services;
 
 public class RestDays {
+
     public int calculate(int income, int expenses, int threshold) {
+
         int count = 0; // счётчик месяцев отдыха
-        int wallet = 0; // Количесво денег на счету
+        int money = 0; // Количесво денег на счету
 
-        for (int month = 1; month <=12; month++) {
-         count++;//Увеличивает счётчик месяцев отдыха
-            if (wallet >= threshold) {
+        for (int month = 0; month < 12; month++) {
 
-                wallet = wallet -expenses;
-
-                System.out.println("Месяц  " +count+ " Денег "+wallet+ " Отдыхаю"+"траты - " +expenses+ " Затем ещё -");
-
-            }
+            if (money >= threshold) {
+                count++;
+                money = (money - expenses) / 3;
 
 
-            else  {
-                wallet = wallet + income -(expenses);
+                System.out.println("Месяц  " + month + " Денег " + money + " Отдыхаю " + " траты - " + expenses + " Затем ещё - ");
 
 
-                System.out.println("Месяц  " +month+ " Денег "+wallet+ " Буду работать "+" Заработал + "+income+ " Минус траты -- " +expenses);
+            } else {
+                money = money + income - expenses;
+
+
+                System.out.println("Месяц  " + month + " Денег " + money + " Буду работать " + " Заработал + " + income + " Минус траты - " + expenses);
 
             }
         }
